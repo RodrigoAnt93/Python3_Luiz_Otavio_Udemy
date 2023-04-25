@@ -15,4 +15,4 @@ pokemon = [
     ]
 
 with open('Pokedex.json', 'w', encoding='utf8') as pokedex:
-    json.dump(pokemon, pokedex)
+    json.dump(pokemon, pokedex, indent=2, ensure_ascii=False)
