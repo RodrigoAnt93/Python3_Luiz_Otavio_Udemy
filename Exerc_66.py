@@ -1,4 +1,6 @@
-cadastro = [{'nome': 'rodrigo', 'notas': [5, 10], 'status': 'Aprovado'}]
+def soma(x, y):
+    return x + y
 
-for aluno in cadastro:
-    print(aluno['nome'])
+print(soma(5, 7))
+
+lambida = lambda x, y: x+y
