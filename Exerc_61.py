@@ -1,12 +1,12 @@
 #Criando código para alimentar minha pokedex e salvar usando JSON
 import json
 
-with open('Pokedex.json', 'r+', encoding='utf8') as pokedex:
+with open('Pokedex.json', 'r', encoding='utf8') as pokedex:
     pokemon = json.load(pokedex)
     while True:
         print(f'O último pokemon cadastrado foi o {pokemon[-1]["dex"]}° {pokemon[-1]["nome"]}.')
         print()
-        nome_poke = str(input('Qual o nome do Pokemon? ')).title()
+        nome_poke = str(input('Qual o nome do Pokemon? ')).title().strip()
         print('Precisamos dos atributos do pokemon agora:')
         atributos = []
         atributos.append(int(input('HP: ')))
@@ -29,8 +29,9 @@ with open('Pokedex.json', 'r+', encoding='utf8') as pokedex:
             else:
                 print("Responda 'S' ou 'N'!")
         if opc == 'S':
-            json.dump({"dex": (pokemon[-1]["dex"] + 1), "nome": nome_poke, 'atbt_base': atributos, "type": type_poke},
-                      pokedex)
+            pokemon.append({"dex": (pokemon[-1]["dex"] + 1), "nome": nome_poke, 'atbt_base': atributos, "type": type_poke})
+            with open('Pokedex.json', 'w', encoding='utf8') as pokedex:
+                json.dump(pokemon, pokedex, indent=2, ensure_ascii=False)
             print('Pokemon Cadastrado!')
         else:
             print('Cadastro Cancelado"')
@@ -43,4 +44,4 @@ with open('Pokedex.json', 'r+', encoding='utf8') as pokedex:
         if opc_2 == 'N':
             break
         print()
-print(pokemon)
+
