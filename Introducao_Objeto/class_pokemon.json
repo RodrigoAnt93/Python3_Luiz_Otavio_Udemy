@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Bulbasaur",
+    "type": [
+      "Grass",
+      "Poison"
+    ]
+  },
+  {
+    "name": "Squirtle",
+    "type": [
+      "Water"
+    ]
+  },
+  {
+    "name": "Charmander",
+    "type": [
+      "Fire"
+    ]
+  }
+]
