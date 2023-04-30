@@ -28,8 +28,6 @@ class Battle_Pokemon():
         self.pokemon_obj = pokemon_obj
 
 
-
-
 class Pokeball:
     def __init__(self, type, chance, amount):
         self.type = type
@@ -42,22 +40,15 @@ class Pokeball:
         chance = round(((((3 * self.battle_result.pokemon_obj.total_hp - 2 * self.battle_result.current_hp)
                    * (self.battle_result.pokemon_obj.catch_rate * self.chance)) / (3 * self.battle_result.pokemon_obj.total_hp)) * self.battle_result.status) / 10, 2)
 
-
         if chance >= catch_percentage:
             self.amount -= 1
             return f'Você teve {chance}% de chance para capturar o {self.battle_result.pokemon_obj.name} e conseguiu. PARABÉNS!'
-
         else:
             self.amount -= 1
             return f'Você teve {chance}% de chance para capturar o {self.battle_result.pokemon_obj.name} e a pokebola quebrou. Lamento...'
 
 
-
-
 gastly = Pokemon(name='Gastly', total_hp=60, catch_rate=190)
-
 current_battle = Battle_Pokemon(current_hp=30, status=1.5, pokemon_obj=gastly)# 50% do HP e queimado.
-
 great_ball = Pokeball(type='Great Ball', chance=1.5, amount=10)
-
 print(great_ball.capture(current_battle))
