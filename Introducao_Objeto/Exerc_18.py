@@ -36,17 +36,34 @@ class Pokemon:
             print(f'{ind + 1} = {m.name}')
 
 
+class Treiner:
+    def __init__(self, name, age, city):
+        self.name = name
+        self.age = age
+        self.city = city
+        self.list_pokemon = []
+        self.warehouse = []
+
+    def new_pokemon(self, new_pokemon):
+        if len(self.list_pokemon) <= 6:
+            self.list_pokemon.append(new_pokemon)
+        else:
+            self.warehouse.append(new_pokemon)
+
+
+treiner = Treiner('Rodrigo', 29, 'Pallet')
 lick = Move('Lick', 30, ['Ghost', 'Physical'])
 confuse_ray = Move('Confuse Ray', None, ['Ghost'])
 hypnosis = Move('Hypnosis', None, ['Physical'])
 mean_look = Move('Mean Look', None, ['Normal'])
 payback = Move('Payback', 50, ['Dark', 'Physical'])
 gastly = Pokemon('Gastly', ['Ghost', 'Poison'], 25)
+gastly.learn_new_move(lick)
+gastly.learn_new_move(confuse_ray)
+gastly.learn_new_move(hypnosis)
+gastly.learn_new_move(mean_look)
 while True:
-    gastly.learn_new_move(lick)
-    gastly.learn_new_move(confuse_ray)
-    gastly.learn_new_move(hypnosis)
-    gastly.learn_new_move(mean_look)
-    gastly.learn_new_move(payback)
-    gastly.list_move()
+    treiner.new_pokemon(gastly)
+    treiner.list_pokemon[0].learn_new_move(payback)
+    treiner.list_pokemon[0].list_move()
     stop = input('continuar?')
