@@ -19,7 +19,7 @@ class Pokeball:
         else:
             self.amount -= 1
             print(f'Você teve {chance}% de chance para capturar o {self.battle_result.wild_pokemon.name} e a pokebola quebrou. Lamento...')
-            return [False]
+            return [False] 
 
 class Treiner:
     def __init__(self, name, age, city):
