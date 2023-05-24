@@ -7,7 +7,7 @@ class AccountBank:
         self.name = name
         self.type = type
         self.status = status
-        self.limit = limit
+        self.limit = limit #[Status, value overdraft, balance overdraft]
 
     def deposit(self, values: float) -> None:
         if self.limit[0]:
