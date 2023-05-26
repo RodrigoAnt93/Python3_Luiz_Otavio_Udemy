@@ -1,13 +1,20 @@
-
-
 class AccountBank:
-    def __init__(self, number: int, balance: float, name: str, type: int, status: bool, limit: list):
+    def __init__(self, number: int, name: str, type: int):
         self.number = number
-        self.balance = balance
+        self.balance = 0
         self.name = name
         self.type = type
-        self.status = status
-        self.limit = limit #[Status, value overdraft, balance overdraft]
+        self.status = False
+        self.limit = [False, 0, 0] #[Status, value overdraft, balance overdraft]
+
+    def limit_(self, values) -> int:
+        if not self.limit[0]:
+            self.limit[0] = True
+            self.limit[1] = values
+            self.limit[2] = values
+            return 1
+        else:
+            return 0
 
     def deposit(self, values: float) -> None:
         if self.limit[0]:
@@ -52,6 +59,4 @@ class AccountBank:
 
     def situation_account(self) -> tuple:
         return self.status, self.balance, self.limit[0], self.limit[1], self.limit[2]
-
-
 
