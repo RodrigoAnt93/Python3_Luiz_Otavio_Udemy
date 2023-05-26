@@ -13,6 +13,7 @@ def draw(obj: AccountBank, value: float):
     else:
         print("Saque não autorizado.")
 
+
 def activate_account(obj: AccountBank):
     result = obj.activate_account()
     if result == 1:
@@ -28,3 +29,11 @@ def situation_account(obj: AccountBank):
     if result[2]:
         print(f"    Seu cheque especial é R${result[3]}")
         print(f"    Seu saldo do cheque especial é R${result[4]}")
+
+
+def activa_limit(obj: AccountBank, value):
+    result = obj.limit_(value)
+    if result == 1:
+        print("   Seu Cheque Especial foi autorizado.")
+    else:
+        print("   Não foi possível autorizar o cheque especial.")
